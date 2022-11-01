@@ -1,7 +1,7 @@
 //
 // Created by jl on 31/10/22.
 //
-#include <iostream>;
+#include <iostream>
 
 using namespace std;
 
@@ -15,7 +15,12 @@ class Document {
     string auteur;
 public:
     void afficher();
-    Document(string &titre, string *resume, string auteur);
+
+    Document(string titre, string *resume, string auteur);
+
+    Document(Document &copie);
+
+    ~Document();
 };
 
 
