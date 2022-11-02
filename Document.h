@@ -14,13 +14,18 @@ class Document {
     string *resume;
     string auteur;
 public:
-    void afficher();
-
+    //constructeurs
     Document(string titre, string *resume, string auteur);
 
-    Document(Document &copie);
+    Document(const Document &copie);
 
+    //destructeur
     ~Document();
+
+    //methodes
+    void afficher();
+
+    Document clonage();
 };
 
 
