@@ -15,7 +15,7 @@ class Document {
     string auteur;
 public:
     //constructeurs
-    Document(string titre, string *resume, string auteur);
+    Document(string &titre, string *resume, string auteur);
 
     Document(const Document &copie);
 
@@ -25,7 +25,9 @@ public:
     //methodes
     void afficher();
 
-    Document clonage();
+    Document* clonage();
+
+    Document& operator=(const Document &d2);
 };
 
 
