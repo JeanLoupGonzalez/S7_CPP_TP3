@@ -10,10 +10,15 @@ using namespace std;
 
 
 class Document {
+    //1ere façon de faire
+    //donne accces à ces attributs qu'aux classes filles
+protected:
     string &titre;
     string *resume;
     string auteur;
+
 public:
+
     //constructeurs
     Document(string &titre, string *resume, string auteur);
 
@@ -25,9 +30,13 @@ public:
     //methodes
     void afficher();
 
-    Document* clonage();
+    Document *clonage();
 
-    Document& operator=(const Document &d2);
+    Document &operator=(const Document &d2);
+
+    //2e façon de faire
+    //donne acces a Livre aux attributs prives de Document
+    //friend class Livre;
 };
 
 

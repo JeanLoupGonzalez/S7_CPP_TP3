@@ -7,41 +7,62 @@ using namespace std;
 #include "Article.h"
 
 int main() {
+
     //test constructeur Document
     string resume1 = "Nemo se fait kidnapper et son pere le retrouve a l'aide d'un poisson bleu amnesique";
     string *ptr_resume1 = &resume1;//pointe vers l'adresse de resume1
     string titre1 = "Nemo";
     Document doc1(titre1, ptr_resume1, "Oualt Disnet");
+
     //test doc.afficher()
+    cout<<"//test doc1.afficher();"<<endl;
     doc1.afficher();
     cout << "\n" << endl;
 
     //test constructeur copie
-    Document *doc2 = new Document(doc1);
-    doc2->afficher();
-    cout << "\n" << endl;
-
-    Document doc4(doc1);
-    doc4.afficher();
+    cout<<"//test constructeur copie avec Document doc2(doc1);"<<endl;
+    cout<<"//affichage de doc2"<<endl;
+    Document doc2(doc1);
+    doc2.afficher();
     cout << "\n" << endl;
 
     //test clonage
+    //creation d'un document que l'on va cloner
     string resume3 = "Un mutant aux cheveux blancs sauve le monde";
     string *ptr_resume3 = &resume3;//pointe vers l'adresse de resume1
     string titre3 = "The Ouicheur";
     Document doc3(titre3, ptr_resume3, "Zksizymski");
-    cout << "//Test clonage, affiche adresse du pointeur " << endl;
+
+    cout << "//affichage de doc3 (que l'on va cloner) dans un nouveau Document doc5" << endl;
+    doc3.afficher();
+    cout << "\n" << endl;
+
+    cout << "//Test clonage : Document doc5(*(doc3.clonage())); " << endl;
+    cout << "//affichage de doc5 " << endl;
     Document doc5(*(doc3.clonage()));
     doc5.afficher();
     cout << "\n" << endl;
 
+
+    //test operateur affectation
+    cout << "//test operateur affectation pour Document" << endl;
+    cout << "//doc1=doc3 (nemo devient le doc the ouicheur)" << endl;
+    cout << "//affichage doc1" << endl;
+    doc1 = doc3;
+    doc1.afficher();
+    cout << "\n" << endl;
+
     //test Livre
     //creation et affichage d'un livre
+    cout << "//On cree un Livre que l'on affiche avec livre1.afficher();" << endl;
     Livre livre1(titre3, ptr_resume3, "Zksizymski",
                  "pocheEdition", "56");
     livre1.afficher();
     cout << "\n" << endl;
 
+    //test clonage pour livre
+    cout << "//On clone livre1 ds un nouveau Livre livre2;" << endl;
+    cout << "//affichage livre2;" << endl;
     Livre livre2(*(livre1.clonage()));
     livre2.afficher();
     cout << "\n" << endl;
@@ -59,22 +80,30 @@ int main() {
     article2.afficher();
     cout << "\n" << endl;
 
-    //test operateur affectation
-    cout<<"//test operateur affectation pour Document\n"<<endl;
-    cout<<"//doc1=doc3 (nemo devient le doc the ouicheur)\n"<<endl;
-    doc1=doc3;
-    doc1.afficher();
+    //creation d'un autre livre pour tester la classe Livre
+    string resumeLivre3 = "Bigue Brozeur nous regarde";
+    string *ptdr_resumeLivre3 = &resumeLivre3;
+    string titreLivre3 = ("1894");
+    Livre livre3(titreLivre3, ptdr_resumeLivre3, "Jorj Orouelle", "plamarion", "1984");
+
+    cout << "//test operateur affectation pour Livre\n" << endl;
+    cout << "//livre1=livre3 (""the ouicheur" "prend les valeurs du livre 1894)\n" << endl;
+    livre1 = livre3;
+    livre1.afficher();
     cout << "\n" << endl;
 
-    string resumeLivre3="Bigue Brozeur nous regarde";
-    string* ptdr_resumeLivre3=&resumeLivre3;
-    string titreLivre3=("1894");
-    Livre livre3(titreLivre3,ptdr_resumeLivre3,"Jorj Orouelle","plamarion","1984");
+    //creation d'un article pour tester la classe Article
+    string titre7 = "L'eau va disparaitre d'ici 30 ans";
+    string resume7 = "Quand l'eau va disparaitre, on va tous mourrir de soif";
+    string *ptr_resume7 = &resume7;
+    Article article3(titre7, ptr_resume7, "Michel Fustere", "siance et vue",
+                     "MJ Presse", "3");
 
-    cout<<"//test operateur affectation pour Livre\n"<<endl;
-    cout<<"//livre1=livre3 (the ouicheur copie le livre 1894\n"<<endl;
-    livre1=livre3;
-    doc1.afficher();
+    cout << "//test operateur affectation pour Article\n" << endl;
+    cout << "//article1=article3 (""article du collegien" "prend les valeurs"
+            "de l'article sur l'eau)\n" << endl;
+    article1 = article3;
+    article1.afficher();
     cout << "\n" << endl;
 
 

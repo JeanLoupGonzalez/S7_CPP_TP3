@@ -8,17 +8,20 @@
 #include "Document.h"
 
 
-class Article: public Document {
+class Article : public Document {
     string editeur;
     string numero;
     string titreRevue;
 
 public:
-    Article(string &titre, string *resume, string auteur,string titreRevue,  string editeur,string numero);
+    Article(string &titre, string *resume, string auteur, string titreRevue, string editeur, string numero);
 
     void afficher();
 
     Article *clonage();
+
+    Article& operator=(const Article &a2);
+
 };
 
 

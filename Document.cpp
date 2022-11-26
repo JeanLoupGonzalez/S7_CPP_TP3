@@ -36,7 +36,7 @@ Document *Document::clonage() {
 Document &Document::operator=(const Document &d2) {
     if(this != &d2){
         this->titre = d2.titre;
-        this->resume = new string(*d2.resume);
+        this->resume =  new string (*d2.resume);
         this->auteur = d2.auteur;
     }
     return *this;

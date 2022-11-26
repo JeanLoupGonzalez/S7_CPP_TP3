@@ -21,13 +21,14 @@ Livre *Livre::clonage() {
 }
 
 Livre &Livre::operator=(const Livre &l2) {
-    if(this != &l2){
-        //utilisation de l'operateur affectation sur l'objet courant
-        //affecte les attributs de document
-        *this=l2;
-        //traitement des attributs de Livre
-        this->editeur=l2.editeur;
-        this->anneeParu=l2.anneeParu;
+
+    if (this != &l2) {
+        this->titre = l2.titre;
+        this->resume = new string(*l2.resume);
+        this->auteur = l2.auteur;
+
+        this->editeur = l2.editeur;
+        this->anneeParu = l2.anneeParu;
     }
     return *this;
 }
