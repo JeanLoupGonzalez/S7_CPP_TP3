@@ -33,3 +33,8 @@ Article &Article::operator=(const Article &a2) {
     }
     return *this;
 }
+
+Article::Article(const Article &a) : Document(a.titre, a.resume, a.auteur),
+                                     editeur(a.editeur), numero(a.numero), titreRevue(a.titreRevue) {
+
+}

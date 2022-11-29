@@ -14,6 +14,8 @@ class Livre : public Document {
 public:
     Livre(string &titre, string *resume, string auteur, string editeur, string annee);
 
+    Livre(const Livre &l);
+
     void afficher();
 
     Livre* clonage();

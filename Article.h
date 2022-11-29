@@ -16,6 +16,8 @@ class Article : public Document {
 public:
     Article(string &titre, string *resume, string auteur, string titreRevue, string editeur, string numero);
 
+    Article(const Article &a);
+
     void afficher();
 
     Article *clonage();

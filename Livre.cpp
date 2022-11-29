@@ -9,6 +9,12 @@ Livre::Livre(string &titre, string *resume, string auteur, string editeur, strin
         editeur(editeur), anneeParu(annee) {
 }
 
+Livre::Livre(const Livre &l) : Document(l.titre, l.resume, l.auteur),
+                               editeur(l.editeur), anneeParu(l.anneeParu) {
+
+}
+
+
 void Livre::afficher() {
     Document::afficher();
     cout << "Editeur : " << this->editeur << endl;
